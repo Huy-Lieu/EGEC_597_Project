@@ -57,7 +57,7 @@ always@(posedge clk)
                       .A2(1'b1),
                       .A3(1'b1),
                       .CE(1'b1),
-                      .CLK(sclk_10mhz),
+                      .CLK(clk),
                       .D(srl_B)
                       );
    (* DONT_TOUCH = "yes" *)                   
@@ -69,7 +69,7 @@ always@(posedge clk)
                       .A2(1'b1),
                       .A3(1'b1),
                       .CE(1'b1),
-                      .CLK(sclk_10mhz),
+                      .CLK(clk),
                       .D(srl_A)
                       );
 // CARRY4: Fast Carry Logic Component
@@ -108,7 +108,7 @@ assign N1 = CO_B[3];
   FDPE #(.INIT(1'b0)) // Intial value of the register Q
   FPDE_inst (
    .Q(Q),
-   .C(sclk_10mhz),
+   .C(clk),
    .CE(1'b1),
    .PRE(N2),
    .D(Q)
