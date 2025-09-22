@@ -48,7 +48,7 @@ module two_srls_two_carry4_wff
 
 // 16-Bit Shift Register Look-Up Table (LUT) with Clock Enable
 // Instantiation
-  (* DONT_TOUCH = "yes" *)
+  //(* DONT_TOUCH = "yes" *)
   SRL16E #(.INIT(16'hAAAA))
          SRL16E_B(
                       .Q(srl_B),
@@ -60,7 +60,7 @@ module two_srls_two_carry4_wff
                       .CLK(clk),
                       .D(srl_B)
                       );
-   (* DONT_TOUCH = "yes" *)                   
+   //(* DONT_TOUCH = "yes" *)                   
    SRL16E #(.INIT(16'h5555))
          SRL16E_A(
                       .Q(srl_A),
@@ -74,20 +74,20 @@ module two_srls_two_carry4_wff
                       );
 // CARRY4: Fast Carry Logic Component
 // Instantiation
-  (* DONT_TOUCH = "yes" *) wire [3:0] CO_A;
-  (* DONT_TOUCH = "yes" *) wire [3:0] CO_B;
+  //(* DONT_TOUCH = "yes" *) 
+  wire [3:0] CO_A;
+  //(* DONT_TOUCH = "yes" *) 
+  wire [3:0] CO_B;
  
-  (* DONT_TOUCH = "yes" *)
+  //(* DONT_TOUCH = "yes" *)
   CARRY4 
         CARRY4_A(
                     .CO(CO_A),
                     .O(),
                     .CI(CO_B[3]),
-//                    .CI(1'b1),
                     .CYINIT(1'b0),
                     .DI(4'b0000),
                     .S({srl_A, 3'b111})
-//                    .S({srl_A, 1'b1, srl_B, 1'b1})
                     );
 
   CARRY4 
@@ -97,7 +97,7 @@ module two_srls_two_carry4_wff
                       .CI(1'b1),
                       .CYINIT(1'b0),
                       .DI(4'b0000),
-                      .S({2'b1,srl_B, 1'b1})
+                      .S({2'b11, srl_B, 1'b1})
                       );
                       
 assign N2 = CO_A[3];
