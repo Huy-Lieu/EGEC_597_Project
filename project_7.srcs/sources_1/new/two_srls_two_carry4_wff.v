@@ -27,24 +27,24 @@ module two_srls_two_carry4_wff
   output srl_B, // OUTPUT of LUT B
   output N2, //N2 CO3_A
   output N1,  //N1 CO3_B
-  output Q,
-  output reg sclk_10mhz = 0
+  output Q
+  //output reg sclk_10mhz = 0
 );
 
 // Slower Clock for output show LED - only for fun
-integer count = 0;
+//integer count = 0;
 //reg sclk_10mhz = 0;
 
-always@(posedge clk)
-  begin
-    if (count < 4) //1KHz
-      count <= count + 1;
-    else
-      begin
-        count <= 0;
-        sclk_10mhz <= ~sclk_10mhz;
-      end
-  end
+//always@(posedge clk)
+//  begin
+//    if (count < 4) //1KHz
+//      count <= count + 1;
+//    else
+//      begin
+//        count <= 0;
+//        sclk_10mhz <= ~sclk_10mhz;
+//      end
+//  end
 
 // 16-Bit Shift Register Look-Up Table (LUT) with Clock Enable
 // Instantiation
@@ -86,7 +86,8 @@ always@(posedge clk)
 //                    .CI(1'b1),
                     .CYINIT(1'b0),
                     .DI(4'b0000),
-                    .S({srl_A, 1'b1, srl_B, 1'b1})
+                    .S({srl_A, 3'b111})
+//                    .S({srl_A, 1'b1, srl_B, 1'b1})
                     );
 
   CARRY4 
