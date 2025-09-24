@@ -35,7 +35,7 @@
 
 module UART_TX_CTRL # (
                       // UART CONFIGURATION PARAMETER
-                       parameter FPGA_clk_val = 100_000, // Testing the FSM 100_000: Should be 100_000_000
+                       parameter FPGA_clk_val = 100_000_000, // Testing the FSM 100_000: Should be 100_000_000
                        parameter UART_baud = 9_600
                       )
                       (
@@ -52,7 +52,7 @@ localparam bit_tmr_max = (FPGA_clk_val / UART_baud) - 1;
 localparam bit_index_max = 10;
   //Counter that keeps track of the number of clock cycles the current bit has been held stable over the
   //UART TX line. It is used to signal when the next bit should be transferred on the UART TX line
-reg [13:0] bit_tmr = 0;
+reg [32:0] bit_tmr = 0;
   //combinatorial logic that goes high when bitTmr has counted to the proper value to ensure
   //a 9600 baud rate
 wire bit_done;

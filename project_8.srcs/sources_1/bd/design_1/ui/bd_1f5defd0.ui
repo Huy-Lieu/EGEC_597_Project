@@ -1,0 +1,19 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace port ready_0 -pg 1 -lvl 3 -x 550 -y -20 -defaultsOSRD
+preplace port UART_TX_0 -pg 1 -lvl 3 -x 550 -y 40 -defaultsOSRD
+preplace port CLK -pg 1 -lvl 0 -x -170 -y 20 -defaultsOSRD
+preplace inst vio_0 -pg 1 -lvl 1 -x 0 -y 30 -defaultsOSRD
+preplace inst UART_TX_CTRL_0 -pg 1 -lvl 2 -x 400 -y 30 -defaultsOSRD
+preplace netloc UART_TX_CTRL_0_ready 1 0 3 -150 120 N 120 530
+preplace netloc UART_TX_CTRL_0_UART_TX 1 0 3 -140 110 140 -50 520
+preplace netloc vio_0_probe_out0 1 1 1 130 20n
+preplace netloc clk_0_1 1 0 2 -150 -50 130
+preplace netloc vio_0_probe_out1 1 1 1 130 40n
+levelinfo -pg 1 -170 0 400 550
+pagesize -pg 1 -db -bbox -sgen -250 -60 680 230
+"
+}
+0

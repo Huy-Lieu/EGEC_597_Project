@@ -1,0 +1,136 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xD7C079C8907E4832",
+      "device": "xc7a50ticsg324-1L",
+      "name": "design_1",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2019.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "vio_0": "",
+      "UART_TX_CTRL_0": ""
+    },
+    "ports": {
+      "ready_0": {
+        "direction": "O"
+      },
+      "UART_TX_0": {
+        "direction": "O"
+      },
+      "CLK": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "design_1_clk_0",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000",
+            "value_src": "default"
+          }
+        }
+      }
+    },
+    "components": {
+      "vio_0": {
+        "vlnv": "xilinx.com:ip:vio:3.0",
+        "xci_name": "design_1_vio_0_0",
+        "parameters": {
+          "C_NUM_PROBE_IN": {
+            "value": "2"
+          },
+          "C_NUM_PROBE_OUT": {
+            "value": "2"
+          },
+          "C_PROBE_OUT1_INIT_VAL": {
+            "value": "0xAA"
+          },
+          "C_PROBE_OUT1_WIDTH": {
+            "value": "8"
+          }
+        }
+      },
+      "UART_TX_CTRL_0": {
+        "vlnv": "xilinx.com:module_ref:UART_TX_CTRL:1.0",
+        "xci_name": "design_1_UART_TX_CTRL_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "UART_TX_CTRL",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "send": {
+            "direction": "I"
+          },
+          "data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "ready": {
+            "direction": "O"
+          },
+          "UART_TX": {
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "nets": {
+      "UART_TX_CTRL_0_ready": {
+        "ports": [
+          "UART_TX_CTRL_0/ready",
+          "ready_0",
+          "vio_0/probe_in0"
+        ]
+      },
+      "UART_TX_CTRL_0_UART_TX": {
+        "ports": [
+          "UART_TX_CTRL_0/UART_TX",
+          "UART_TX_0",
+          "vio_0/probe_in1"
+        ]
+      },
+      "vio_0_probe_out0": {
+        "ports": [
+          "vio_0/probe_out0",
+          "UART_TX_CTRL_0/send"
+        ]
+      },
+      "clk_0_1": {
+        "ports": [
+          "CLK",
+          "vio_0/clk",
+          "UART_TX_CTRL_0/clk"
+        ]
+      },
+      "vio_0_probe_out1": {
+        "ports": [
+          "vio_0/probe_out1",
+          "UART_TX_CTRL_0/data"
+        ]
+      }
+    }
+  }
+}
